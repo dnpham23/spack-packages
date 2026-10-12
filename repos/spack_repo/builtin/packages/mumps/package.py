@@ -273,7 +273,7 @@ class Mumps(Package):
         # On macOS the shared libraries are linked without MPI, so each has its
         # own copy of the Fortran MPI_IN_PLACE sentinel (a COMMON block), and
         # MPI recognizes only one copy per process.
-        if self.spec.satisfies("+mpi+shared platform=darwin"):
+        if self.spec.satisfies("@5.6.2: +mpi+shared platform=darwin"):
             optf.append("-DAVOID_MPI_IN_PLACE")
 
         # Intel and oneAPI Fortran compilers link for_main.o which provides
